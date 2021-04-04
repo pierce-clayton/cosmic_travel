@@ -1,0 +1,27 @@
+<%= form_with(model: scientist, local: true) do |form| %>
+  <% if scientist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scientist.errors.count, "error") %> prohibited this planet from being saved:</h2>
+
+      <ul>
+        <% scientist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :field_of_study %>
+    <%= form.text_field :field_of_study %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
